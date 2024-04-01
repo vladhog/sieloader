@@ -18,3 +18,6 @@ With this program it will be simple to load ton of addons at same time, just put
 3. Run their installation scripts from install.txt (each line being executed in cmd)
 4. Making one invoker out of all addon files
 5. Done! You can load sieloader_addons.yaml from SIERRA root directory and all your addons will work!
+
+# License
+Sieloader © 2024 by Vladhog Security is licensed under Attribution-NonCommercial-ShareAlike 4.0 International.
