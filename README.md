@@ -9,6 +9,8 @@ With this program it will be simple to load ton of addons at same time, just put
             - install.txt
             - addon.yaml
             - myaddon.py
+            - /anothermyaddon
+                - moreaddons.py
 ```
 # How it works
 1. We search for sierra root folder
