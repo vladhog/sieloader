@@ -13,6 +13,6 @@ With this program it will be simple to load ton of addons at same time, just put
 # How it works
 1. We search for sierra root folder
 2. Load addons from /addons folder
-3. Run their installation scripts from install.txt
+3. Run their installation scripts from install.txt (each line being executed in cmd)
 4. Making one invoker out of all addon files
 5. Done! You can load sieloader_addons.yaml from SIERRA root directory and all your addons will work!
