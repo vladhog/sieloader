@@ -1,6 +1,7 @@
 import io
 import os
-import winreg
+if os.name == "nt":
+    import winreg
 
 import yaml
 
@@ -13,7 +14,7 @@ def sierra_search():
         if sierra_path is None:
             aReg = winreg.ConnectRegistry(None, i)
             aKey = winreg.OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall",
-                              0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY)
+                                  0, winreg.KEY_READ | winreg.KEY_WOW64_64KEY)
             count_subkey = winreg.QueryInfoKey(aKey)[0]
             for i in range(count_subkey):
                 try:
@@ -29,6 +30,7 @@ def sierra_search():
             break
     return sierra_path
 
+
 def get_addons(path):
     dirs = [x[1] for x in os.walk(path)][0]
     addon_dirs = []
@@ -36,6 +38,7 @@ def get_addons(path):
         if os.path.isfile(path + f"/{i}/addon.yaml"):
             addon_dirs.append(i)
     return dirs
+
 
 def run_install_script(addons_dir, addon):
     try:
@@ -46,7 +49,8 @@ def run_install_script(addons_dir, addon):
     except Exception:
         pass
 
-def generate_addon_file(sierra_path, addons_path, addons):
+
+def generate_addon_file(addons_path, addons):
     paths = []
     scripts = []
     for addon in addons:
@@ -54,7 +58,7 @@ def generate_addon_file(sierra_path, addons_path, addons):
         with open(addons_path + f"{addon}" + "/addon.yaml") as file:
             scripts += yaml.safe_load(file)['SCRIPTS']
 
-    with io.open(f"{sierra_path}/sieloader_addons.yaml", 'w', encoding='utf8') as file:
+    with io.open(f"sieloader_addons.yaml", 'w', encoding='utf8') as file:
         data = {"PATHS": paths, 'SCRIPTS': scripts}
         yaml.dump(data, file, default_flow_style=False, allow_unicode=True)
-    return f"{sierra_path}/sieloader_addons.yaml"
+    return f"sieloader_addons.yaml"
