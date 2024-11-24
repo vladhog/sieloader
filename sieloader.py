@@ -25,6 +25,6 @@ if os.path.isdir(addons_dir):
         subprocess.Popen([os.path.join(os.getenv('WINDIR'), 'explorer.exe'), '/select,', os.path.abspath(universal_addon_file)], start_new_session=True)
         subprocess.Popen([os.path.join(sierra_path, 'SIERRA.exe')], start_new_session=True)
     else:
-        showinfo('Thank you for using sierepo', 'Your universal addon file is ready, you can find it in sierepo program folder called sieloader_addons.yaml. Thank you for using sierepo!')
+        showinfo('Thank you for using sieloader', 'Your universal addon file is ready, you can find it in sieloader program folder called sieloader_addons.yaml. Thank you for using sieloader!')
 else:
     os.mkdir(addons_dir)
