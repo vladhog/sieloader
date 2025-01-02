@@ -1,5 +1,7 @@
 import io
+import json
 import os
+
 if os.name == "nt":
     import winreg
 
@@ -50,6 +52,13 @@ def run_install_script(addons_dir, addon):
         pass
 
 
+def edit_sierra_config(config_file, addon_file):
+    data = json.loads("{}")
+    with open(config_file, "w") as file:
+        data['IVK_CFG_PATH'] = addon_file
+        json.dump(data, file)
+
+
 def generate_addon_file(addons_path, addons):
     paths = []
     scripts = []
@@ -61,4 +70,4 @@ def generate_addon_file(addons_path, addons):
     with io.open(f"sieloader_addons.yaml", 'w', encoding='utf8') as file:
         data = {"PATHS": paths, 'SCRIPTS': scripts}
         yaml.dump(data, file, default_flow_style=False, allow_unicode=True)
-    return f"sieloader_addons.yaml"
+    return os.path.abspath("sieloader_addons.yaml")
