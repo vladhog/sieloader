@@ -1,6 +1,11 @@
 # SIERRA addons loader
 With this program it will be simple to load ton of addons at same time, just put them in folder and after SIERRA run, choose sieloader addon file that will be selected in explorer
 
+# Installation
+1. Download archive from [releases](https://github.com/vladhog/sieloader/releases) according to your os.
+2. Unpack archive
+3. Done! Lunch sieloader.exe or sieloader.bin inside folder. Nothing complicated.
+
 # Addons structure 
 ```
 - SIERRA root directory
